@@ -223,7 +223,7 @@ header {
     background-size: cover;
     color: #fff;
     color: var(--text-bright-color);
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 }
 
 .conA h1 {
