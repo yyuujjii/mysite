@@ -134,6 +134,13 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 追加
 
+# メールサーバー用
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'python.test.app000@gmail.com'
+EMAIL_HOST_PASSWORD = 'lblrzltjvcobcljf'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 try:
     from .local_settings import *
 except ImportError:
