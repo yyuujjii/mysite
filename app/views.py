@@ -9,7 +9,7 @@ from django.core.mail import BadHeaderError, send_mail
 
 
 class IndexView(TemplateView):
-    template_name = 'app/index.html'
+    template_name = 'index.html'
 
 
 def index(request):
