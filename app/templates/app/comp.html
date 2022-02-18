@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reduce.py</title>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <meta name="viewport" content="width=device-width. initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <script src="https://use.fontawesome.com/926fe18a63.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script>
+        $(function () {
+            $(".headC").click(function () {
+                $(".headB").slideToggle();
+            });
+        });
+    </script>
+</head>
+
+<style>
+    section {
+        max-width: 700px;
+        max-width: var(--middle-width);
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .comp_container {
+        height: 550px;
+    }
+</style>
+
+<body class="nohero">
+    <header>
+        <div class="container">
+            <div class="container-small">
+                <a href="{% url 'index' %}" class="headA">
+                    <img src="{% static 'img/logo.png' %}">
+                </a>
+                <button type="button" class="headC">
+                    <span class="fa fa-bars" title="MENU"></span>
+                </button>
+            </div>
+
+            <nav class="headB">
+                <ul>
+                    <li><a href="{% url 'index' %}">Top</a></li>
+                    <li><a href="{% url 'contact_form' %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="comp_container">
+            <br>
+            <br>
+            <h1>送信完了</h1>
+            <p>お問い合わせありがとうございました。</p>
+            <p>ご返答までいましばらお待ちください。</p>
+            <br>
+            <a href=" {% url 'index' %}">
+                <p>トップへ</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footA">
+                <h2>Reduce.py</h2>
+            </div>
+            <nav class="footB">
+                <div>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Top</a></li>
+                        <li><a href="{% url 'contact' %}">contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="footC">
+                @ 2022 reduce.py All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

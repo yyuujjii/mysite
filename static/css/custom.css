@@ -1,0 +1,550 @@
+@charset "UTF-8";
+
+/*基本色*/
+:root{
+    --main-color: #5D94B2;
+    --accent-color: #BF6A7A;
+    --dark-color: #2B5566;
+    --text-bright-color: #fff;
+    --large-width: 1000px;
+    --middle-width: 700px;
+}
+
+/*基本設定: フォントサイズ*/
+
+@media (max-width: 599px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 800px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+body {font-size: 16px;}
+
+/*基本設定: ページ全体*/
+
+body {
+    margin: 0;
+    font-family: 'メイリオ', 'Hiragino kaku Gothic Pro', 'sans-serif';
+}
+
+/*ヘッダー*/
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(255,255,255,0.8);
+}
+
+.nohero header {
+    position: static;
+    border-bottom: solid 1px #ddd;
+    background-color: rgba(255,255,255,0.9);
+}
+
+/*ヘッダーA: サイト名*/
+
+.headA {
+    display: inline-block;
+    line-height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.headA img {
+    width: 160px;
+    vertical-align: middle;
+}
+
+/*ヘッダーB: ナビゲーションメニュー*/
+
+.headB ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family:'Ubuntu', sans-serif ;
+}
+
+.headB a{
+    display: block;
+    padding: 15px;
+    color: inherit;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .headB ul {
+        display: flex;
+        
+    }
+}
+
+/*ヘッダーC: トグルボタン*/
+
+@media (max-width: 767px) {
+    header .container-small {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .headC {
+        margin-right: 10px;
+        padding: 0;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 28px;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+
+    .headC:hover {
+        opacity: 0.3;
+    }
+
+    .headB {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .headC {
+        display: none;
+    }
+
+    .headB {
+        display: block !important;
+    }
+}
+
+/*コンテンツページ: 記事*/
+
+.post .container {
+    max-width: 700px;
+    max-width:var(--middle-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 20px 30px;
+}
+
+.post h1 {
+    padding-left: 0.7rem;
+    border-left: solid 0.75rem var(--accent-color);
+    font-size: 1.8rem;
+    font-family: 'メイリオ';
+}
+
+
+.post p {
+    font-size: 1rem;
+    line-height: 2;
+    font-family: 'メイリオ';
+}
+
+.post img {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    padding-bottom: 40px;
+    border-bottom: solid 1px #ddd;
+    border-width: 100%;
+    background-color: rgba(255,255,255,0.9);
+}
+
+
+/*コンテンツページ: パンくずリスト*/
+
+.bread ol {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bread a {
+    display: block;
+    padding: 5px;
+    color: inherit;
+    font-size: 0.875rem;
+    font-family:'Ubuntu', sans-serif ;
+    text-decoration: none;
+}
+
+.bread a::after {
+    margin-left: 10px;
+    content: '\f054';
+    font-family: FontAwesome;
+    opacity: 0.3; 
+}
+
+.bread a:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+/*コンテンツA: ヒーローイメージA*/
+
+.conA {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    min-height: 400px;
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.9)), url(/static/img/img.jpg);
+    background-position:  center;
+    background-size: cover;
+    color: #fff;
+    color: var(--text-bright-color);
+    margin-bottom: 100px;
+}
+
+.conA h1 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 4vw;
+    letter-spacing: 0.1em;
+    margin-left: 0.1em;
+}
+
+.conA p {
+    margin-top: 0;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .conA h1 {
+        font-size: 40px;
+    }
+    .conA p {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .conA h1 {
+        font-size: 24px;
+    }
+    .conA p {
+        font-size: 22px;
+    }
+}
+
+/*コンテンツB: 概要*/
+
+.conB .container  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
+    margin-top:40px;
+    margin-bottom:40px;
+    position: static;
+    border-bottom: solid 1px #ddd;
+    background-color: rgba(255,255,255,0.9);
+    padding-bottom: 40px;
+}
+
+.conB .container .text {
+  margin: 0px 0px 0px 30px;
+  padding: 0;
+}
+
+.conB img {
+    width: 330px;
+}
+
+.conB span {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.conB h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.conB h2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.conB p {
+    margin-top: 0;
+    margin-bottom: 0px;
+    font-size: 14px;
+    line-height: 2.0;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .conB .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .conB .image {
+        margin: 0 auto;
+        padding-left:  20px;
+        padding-right: 20px;
+    }
+    .conB img {
+        width: 100%;
+    }
+    .conB .container .text {
+        margin: 0 auto;
+        margin-top: 10px;
+        padding-left:  30px;
+        padding-right: 30px;
+    }
+}
+
+/* 問い合わせページ：　フォーム */
+
+.Form {
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+  }
+  @media  (max-width: 768px) {
+    .Form {
+      margin-top: 40px;
+    }
+  }
+  .Form-Item {
+    border-top: 1px solid #ddd;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+  }
+  @media  (max-width: 768px) {
+    .Form-Item {
+      padding-left: 14px;
+      padding-right: 14px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      flex-wrap: wrap;
+    }
+  }
+  .Form-Item:nth-child(5) {
+    border-bottom: 1px solid #ddd;
+  }
+  .Form-Item-Label {
+    width: 100%;
+    max-width: 248px;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  @media (max-width: 768px) {
+    .Form-Item-Label {
+      max-width: inherit;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+    }
+  }
+  .Form-Item-Label.isMsg {
+    margin-top: 8px;
+    margin-bottom: auto;
+  }
+  @media (max-width: 768px) {
+    .Form-Item-Label.isMsg {
+      margin-top: 0;
+    }
+  }
+  .Form-Item-Label-Required {
+    border-radius: 6px;
+    margin-right: 15px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width: 48px;
+    display: inline-block;
+    text-align: center;
+    background: tomato;
+    color: #fff;
+    font-size: 14px;
+  }
+  @media (max-width: 768px) {
+    .Form-Item-Label-Required {
+      border-radius: 4px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      width: 32px;
+      font-size: 10px;
+    }
+  }
+  .Form-Item-Input {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-left: 40px;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 48px;
+    flex: 1;
+    width: 100%;
+    max-width: 410px;
+    background: #eaedf2;
+    font-size: 18px;
+  }
+  @media (max-width: 768px) {
+    .Form-Item-Input {
+      margin-left: 0;
+      margin-top: 18px;
+      height: 40px;
+      flex: inherit;
+      font-size: 15px;
+    }
+  }
+  .Form-Item-Textarea {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-left: 40px;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 216px;
+    flex: 1;
+    width: 100%;
+    max-width: 410px;
+    background: #eaedf2;
+    font-size: 18px;
+  }
+  @media (max-width: 768px) {
+    .Form-Item-Textarea {
+      margin-top: 18px;
+      margin-left: 0;
+      height: 200px;
+      flex: inherit;
+      font-size: 15px;
+    }
+  }
+  .Form-Btn {
+    border: none;
+    border-radius:40px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 280px;
+    display: block;
+    letter-spacing: 0.05em;
+    background: linear-gradient(#7daff0, #5095f0);
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .Form-Btn {
+      margin-top: 24px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      width: 160px;
+      font-size: 16px;
+    }
+  }
+
+
+
+/* フッター */
+
+@media  (min-width: 768px) {
+    footer .container {
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
+
+footer {
+    color: #fff;
+    color: var(--text-bright-color);
+    background-color: #2B5566;
+    background-color: var(--dark-color);
+    margin-top: 100px;
+}
+
+footer .container {
+    padding: 40px 20px;
+}
+
+/* フッターA：　サイト情報 */
+
+.footA h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+.footB div {
+    margin-bottom: 20px;
+}
+
+.footB ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footB a {
+    display: block;
+    padding: 5px;
+    color: inherit;
+    font-size: 14px;
+    font-family:'Ubuntu', sans-serif ;
+    text-decoration: none;
+}
+
+.footB a:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.footC {
+    font-size: 12px;
+    text-align: center;
+    font-family: sans-serif;
+}

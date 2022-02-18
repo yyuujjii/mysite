@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reduce.py</title>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <meta name="viewport" content="width=device-width. initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <script src="https://use.fontawesome.com/926fe18a63.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script>
+        $(function () {
+            $(".headC").click(function () {
+                $(".headB").slideToggle();
+            });
+        });
+    </script>
+</head>
+
+<body class="nohero">
+    <header>
+        <div class="container">
+            <div class="container-small">
+                <a href="{% url 'index' %}" class="headA">
+                    <img src="{% static 'img/logo.png' %}">
+                </a>
+                <button type="button" class="headC">
+                    <span class="fa fa-bars" title="MENU"></span>
+                </button>
+            </div>
+
+            <nav class="headB">
+                <ul>
+                    <li><a href="{% url 'index' %}">Top</a></li>
+                    <li><a href="{% url 'contact_form' %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <style>
+        section {
+            max-width: 700px;
+            max-width: var(--middle-width);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 50px 20px 30px;
+        }
+
+        h1 {
+            padding-left: 0.7rem;
+            border-left: solid 0.75rem var(--accent-color);
+            font-size: 1.8rem;
+            font-family: 'メイリオ';
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 2;
+            font-family: 'メイリオ';
+            padding-bottom: 40px;
+        }
+
+        /* fieldブロックの上部20px空ける */
+        .field {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800px;
+        }
+
+        @media (max-width: 768px) {
+            .Form {
+                margin-top: 20px;
+            }
+        }
+
+        /* ブロック要素にする */
+        label {
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            label {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* 件名・Emailの枠 */
+        input {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-left: 1px;
+            padding-left: 1em;
+            padding-right: 1em;
+            height: 48px;
+            flex: 1;
+            width: 92%;
+            background: #eaedf2;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            input {
+                margin-left: 0;
+                margin-top: 18px;
+                height: 40px;
+                flex: inherit;
+                width: 92%;
+                font-size: 15px;
+            }
+        }
+
+        /* 件名・Emailの枠 */
+        select {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-left: 1px;
+            padding-left: 1em;
+            padding-right: 1em;
+            height: 48px;
+            flex: 1;
+            width: 97%;
+            background: #eaedf2;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            select {
+                margin-left: 0;
+                margin-top: 18px;
+                height: 40px;
+                flex: inherit;
+                width: 97%;
+                font-size: 15px;
+            }
+        }
+
+        /* 注意書きを赤色指定 */
+        .help {
+            color: red;
+            font-size: 1rem;
+            line-height: 2;
+            font-family: 'メイリオ';
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* メッセージの枠 */
+        textarea {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-left: 1px;
+            padding-left: 1em;
+            padding-right: 1em;
+            height: 216px;
+            flex: 1;
+            width: 92%;
+            background: #eaedf2;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            textarea {
+                margin-top: 18px;
+                margin-left: 0;
+                height: 200px;
+                width: 92%;
+                flex: inherit;
+                font-size: 15px;
+            }
+        }
+
+        /* チェックボックス*/
+        #id_myself {
+            transform: scale(0.5);
+            max-width: 48px;
+
+        }
+
+        /* 送信ボタン */
+        button {
+            border: none;
+            border-radius: 40px;
+            margin-top: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            width: 280px;
+            display: block;
+            letter-spacing: 0.05em;
+            background: linear-gradient(#7daff0, #5095f0);
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        button:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            button {
+                margin-top: 24px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                width: 160px;
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <section>
+
+        <h1>Contact -お問い合わせ-</h1>
+        <p>アプリケーションの使用方法や作成依頼など、お気軽にご相談ください。</p>
+
+        <form action="{% url 'contact_form' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="field">
+                {{ field.errors }}
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit">送信</button>
+        </form>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footA">
+                <h2>Reduce.py</h2>
+            </div>
+            <nav class="footB">
+                <div>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Top</a></li>
+                        <li><a href="{% url 'contact_form' %}">contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="footC">
+                @ 2022 reduce.py All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

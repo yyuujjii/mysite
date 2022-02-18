@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reduce.py</title>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <meta name="viewport" content="width=device-width. initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <script src="https://use.fontawesome.com/926fe18a63.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script>
+        $(function () {
+            $(".headC").click(function () {
+                $(".headB").slideToggle();
+            });
+        });
+    </script>
+</head>
+
+<body class="nohero">
+    <header>
+        <div class="container">
+            <div class="container-small">
+                <a href="{% url 'index' %}" class="headA">
+                    <img src="{% static 'img/logo.png' %}">
+                </a>
+                <button type="button" class="headC">
+                    <span class="fa fa-bars" title="MENU"></span>
+                </button>
+            </div>
+
+            <nav class="headB">
+                <ul>
+                    <li><a href="{% url 'index' %}">Top</a></li>
+                    <li><a href="{% url 'contact_form' %}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <article class="post">
+        <div class="container">
+
+            <div class="bread">
+                <ol>
+                    <li><a href="{% url 'index' %}">トップ</a></li>
+                    <li><a href="#">アプリケーション一覧</a></li>
+                </ol>
+
+                <h1>twitter auto follow</h1>
+
+                <img src="{% static 'img/content_a.png' %}" alt="">
+
+                <p>twitterのフォローを自動で行うツールです。ご自身のトークンを設定してから検索キーワードと繰り返す回数を入力するだけで半永久的にフォローを行います。ツイッター更新担当者様の業務効率を促進します。
+                </p>
+
+                <p>twitterのフォローを自動で行うツールです。ご自身のトークンを設定してから検索キーワードと繰り返す回数を入力するだけで半永久的にフォローを行います。ツイッター更新担当者様の業務効率を促進します。
+                </p>
+
+                <p>twitterのフォローを自動で行うツールです。ご自身のトークンを設定してから検索キーワードと繰り返す回数を入力するだけで半永久的にフォローを行います。ツイッター更新担当者様の業務効率を促進します。
+                </p>
+
+            </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div class="footA">
+                <h2>Reduce.py</h2>
+            </div>
+            <nav class="footB">
+                <div>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Top</a></li>
+                        <li><a href="{% url 'contact_form' %}">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="footC">
+                @ 2022 reduce.py All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
