@@ -57,14 +57,16 @@ class FormView(TemplateView):
                 sender = self.params["form"].cleaned_data['sender']
                 myself = self.params["form"].cleaned_data['myself']
                 recipients = [settings.EMAIL_HOST_USER]
+                bcc = recipients
 
                 message = name + " 様\n\n" + "電話番号：" + tell + "\n\n" + "お問い合わせの内容\n\n" + message
 
                 if myself:
+                    recipients.clear()
                     recipients.append(sender)
 
                 try:
-                    send_mail(subject, message, sender, recipients)
+                    send_mail(subject, message, sender, recipients, bcc)
                 except BadHeaderError:
                     return HttpResponse('無効なヘッダーが見つかりました。')
 
@@ -72,7 +74,7 @@ class FormView(TemplateView):
             self.params["form"].save(commit=True)
             self.params["Message"] = "入力情報が送信されました。"
 
-        return render(request, "comp.html", context=self.params)
+            return render(request, "comp.html", context=self.params)
 
 
 """ お問い合わせフォーム画面"""
