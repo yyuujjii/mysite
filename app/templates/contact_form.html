@@ -61,7 +61,7 @@
             font-size: 1rem;
             line-height: 2;
             font-family: 'メイリオ';
-            padding-bottom: 40px;
+            padding-bottom: 5px;
         }
 
         /* fieldブロックの上部20px空ける */
@@ -81,8 +81,8 @@
         /* ブロック要素にする */
         label {
             border-top: 1px solid #ddd;
-            padding-top: 15px;
-            padding-bottom: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
             max-width: 800px;
             display: flex;
             align-items: center;
@@ -149,7 +149,7 @@
         }
 
         /* 注意書きを赤色指定 */
-        .help {
+        .helptext {
             color: red;
             font-size: 1rem;
             line-height: 2;
@@ -229,10 +229,11 @@
 
         <h1>Contact -お問い合わせ-</h1>
         <p>アプリケーションの使用方法や作成依頼など、お気軽にご相談ください。</p>
+        <br>
 
-        <form action="{% url 'contact_form' %}" method="post">
+        <form action="{% url 'contact_form' %}" method="POST">
+            {{ form.as_p }}
             {% csrf_token %}
-            {% for field in form %}
             <div class="field">
                 {{ field.errors }}
                 {{ field.label_tag }}
@@ -241,7 +242,6 @@
                 <p class="help">{{ field.help_text|safe }}</p>
                 {% endif %}
             </div>
-            {% endfor %}
             <button type="submit">送信</button>
         </form>
 
